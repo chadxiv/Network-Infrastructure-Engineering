@@ -1,18 +1,80 @@
-# Network Infrastructure & Engineering
-A collection of enterprise-scale network designs and implementation projects.
+MotorPH Layer 3 Enterprise Network Design (Cisco Packet Tracer)
 
-## 🏢 Featured Project: MotorPH Corporate HQ Design
-This project involved designing and validating a Layer 3 switched network for a corporate headquarters.
+This project simulates the network infrastructure of a corporate headquarters using a Core–Access Layer architecture in Cisco Packet Tracer.
 
-### Technical Specifications:
-- **Topology:** Core-Access Star Topology.
-- **Core Layer:** Cisco Layer 3 Switch handling Inter-VLAN routing and DHCP.
-- **Access Layer:** Segmented departmental VLANs (Sales, HR, Marketing, Accounting, IT).
-- **Security:** 802.1Q Trunking and Gateway redundancy.
+📌 Project Overview
 
-### 🔧 Troubleshooting Log (Key Wins):
-- **DHCP Resolution:** Diagnosed and fixed APIPA issues by manually provisioning VLAN databases on access switches.
-- **Trunking Optimization:** Resolved rejected trunk commands by applying explicit encapsulation (`dot1q`).
-- **External Routing:** Validated static routes back to the LAN for external gateway connectivity.
+The network was designed to provide:
 
-![Network Topology](MotorPH-Corporate-Design-Group-Project/images/Network%20Architecture%20Diagram.png)
+Departmental segmentation using VLANs
+High-speed inter-VLAN routing via a Layer 3 Core Switch
+Centralized DHCP services
+Scalable trunk-based switching architecture
+Reliable internal and external connectivity
+
+Departments implemented:
+
+Sales
+HR
+Marketing
+Accounting
+IT
+
+🏗️ Network Architecture
+Core–Access Design
+Layer 3 Core Switch performs:
+Inter-VLAN routing (SVIs)
+DHCP services
+Default gateway functionality
+Layer 2 Access Switches connect departmental end devices
+802.1Q trunk links connect Access Switches to the Core
+🌐 VLAN & VLSM Implementation
+Department	VLAN ID	Subnet
+Sales	100	192.168.10.0/27
+HR	103	192.168.10.32/28
+Marketing	104	192.168.10.48/28
+Accounting	106	192.168.10.64/29
+IT	107	192.168.10.72/29
+
+VLSM (Variable Length Subnet Masking) was implemented to efficiently allocate IP space according to departmental host requirements.
+
+⚙️ Technologies & Concepts Used
+VLAN Segmentation
+Inter-VLAN Routing
+SVIs (Switch Virtual Interfaces)
+VLSM Subnetting
+DHCP Configuration
+802.1Q Trunking
+Layer 3 Switching
+Static Routing
+PVST (Per-VLAN Spanning Tree)
+VTP (VLAN Trunking Protocol)
+🔧 Troubleshooting & Key Learning Outcomes
+DHCP Troubleshooting
+
+Resolved APIPA address issues caused by missing VLAN databases on Access Switches.
+
+Trunking Issues
+
+Resolved trunk encapsulation and VLAN propagation problems using explicit 802.1Q configuration.
+
+VTP Troubleshooting
+
+Diagnosed and resolved VTP domain mismatch issues that caused VLAN database resets and inactive VLAN ports.
+
+Routing Validation
+
+Verified:
+
+Inter-VLAN communication
+DHCP allocation
+End-to-end connectivity
+External route reachability
+✅ Current Status
+Fully operational Layer 3 switched network
+Successful inter-VLAN routing
+DHCP functioning across all VLANs
+Stable VTP/VLAN propagation
+External connectivity verified through simulated edge routing
+
+Cisco Packet Tracer project created for hands-on networking practice and enterprise LAN simulation.
